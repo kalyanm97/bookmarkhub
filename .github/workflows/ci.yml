@@ -31,8 +31,9 @@ jobs:
           npx eslint "src/**/*.{ts,tsx}" --ext .ts,.tsx || true
 
       - name: Fail if explicit `any` in source
+        working-directory: ${{ matrix.service }}
         run: |
-          bash ../../scripts/check-no-any.sh
+          bash ../scripts/check-no-any.sh
 
       - name: Run TypeScript check for service
         working-directory: ${{ matrix.service }}

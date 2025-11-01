@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #0b0f16;
+  color: #e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand a {
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+button.primary {
+  background: #5b7cfa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+input, .input {
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.card {
+  background: #0f1320;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.empty, .error {
+  opacity: .75;
+  padding: 24px;
+}
+
+.topbar a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 1px solid #1f2937;
+}
+
+.vbtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.vbtn.active {
+  background: #172554;
+  color: #93c5fd;
+}
+
+@keyframes fadeInTiny {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation-name: fadeInTiny;
+  animation-timing-function: ease-out;
+}
+
+.vote-transition {
+  transition: transform 120ms ease, color 120ms ease;
+}

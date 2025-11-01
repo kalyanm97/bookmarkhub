@@ -1,0 +1,40 @@
+name: CI - TypeScript checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [backend, frontend]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install repository dependencies (root)
+        run: |
+          npm ci
+
+      - name: Run ESLint for service
+        working-directory: ${{ matrix.service }}
+        run: |
+          npx eslint "src/**/*.{ts,tsx}" --ext .ts,.tsx || true
+
+      - name: Fail if explicit `any` in source
+        run: |
+          bash ../../scripts/check-no-any.sh
+
+      - name: Run TypeScript check for service
+        working-directory: ${{ matrix.service }}
+        run: |
+          npx tsc --noEmit -p tsconfig.json

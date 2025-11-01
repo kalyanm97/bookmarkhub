@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"stores/auth.store.ts -> ../stores/bookmarks.store\":{\"id\":\"stores/auth.store.ts -> ../stores/bookmarks.store\",\"files\":[\"static/chunks/_app-pages-browser_src_stores_bookmarks_store_ts.js\"]}}"

@@ -1,0 +1,17 @@
+{
+  "name": "bookmarkhub-monorepo",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "packages/*"
+  ],
+  "scripts": {
+    "build:shared": "pnpm -w -F @bookmarkhub/shared build || true"
+  },
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0"
+  }
+}
